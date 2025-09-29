@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iftekhar Nabil - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f7fcfb; /* LIGHT GREEN TINT */
+            scroll-behavior: smooth; 
+        }
+
+        .navbar {
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #222; 
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 0;
+        }
+
+        .hero-buttons .btn, .social-links .btn {
+            padding: 10px 25px;
+            margin: 0 10px 10px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ff7675; /* BRIGHT ORANGE/CORAL */
+            color: white;
+            border: 2px solid #ff7675;
+        }
+
+        .btn-primary:hover {
+            background-color: #eb6867;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-section {
+            background-color: #00947e; /* DARK TEAL/EMERALD */
+            color: white;
+            padding: 150px 5% 100px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .about-section {
+            background-color: #fff; 
+            padding: 50px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 250px; 
+            height: 250px;
+            border-radius: 50%; 
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-details {
+            flex-grow: 1;
+        }
+
+        .bio-details h3 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .bio-details .subtitle {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .bio-details h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #eee;
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            background-color: #6c757d; 
+            color: white;
+            border: none;
+            margin-right: 5px;
+        }
+
+        .social-btn i {
+            margin-right: 5px;
+        }
+
+        .info-blocks-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .info-block {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .info-block h4 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .skills-section {
+            background-color: #f4f4f4; 
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .skill-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #00947e; /* DARK TEAL/EMERALD ACCENT */
+        }
+
+        .skill-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .skill-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .contact-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #e0e0e0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3, .contact-form h3 {
+            margin-bottom: 25px;
+            color: #00947e; /* DARK TEAL/EMERALD ACCENT */
+            font-size: 1.4em;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .contact-info p i {
+            margin-right: 10px;
+            color: #00947e; /* DARK TEAL/EMERALD ACCENT */
+        }
+
+        .social-links-contact {
+            margin-top: 20px;
+        }
+
+        .social-links-contact a {
+            font-size: 1.8em;
+            color: #333;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-links-contact a:hover {
+            color: #ff7675; /* BRIGHT ORANGE/CORAL ACCENT */
+        }
+
+        .contact-form form input,
+        .contact-form form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .contact-form form button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-blocks-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+            .skills-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-section {
+                padding: 100px 5% 70px;
+            }
+            .hero-buttons .btn {
+                display: block;
+                margin: 10px auto;
+            }
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Iftekhar Nabil</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section" id="home">
+        <h1>Hello, I'm Iftekhar Nabil</h1>
+        <p class="subtitle">Software Developer & Web Developer</p>
+        <div class="hero-buttons">
+            <a href="#skills" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+    </header>
+
+    <section class="about-section" id="about-me">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="profile-image-container">
+                <img src="/home/nabil/Downloads/nabil/image/nabil.jpeg" alt="Iftekhar Nabil Profile" class="profile-img"> 
+            </div>
+            <div class="bio-details">
+                <h3>Iftekhar Nabil</h3>
+                <p class="subtitle">Software Developer & Web Developer</p>
+                <p class="bio-text">I am a passionate software developer with expertise in web development and a strong foundation in computer science principles. My goal is to create elegant, efficient, and user-friendly applications that solve real-world problems.</p>
+
+                <h4>Personal Information</h4>
+                <p><strong>Name:</strong> Iftekhar Nabil</p>
+                <p><strong>Address:</strong> 10 Tala Police Building, Kalibari, Bashabo, Dhaka 1214</p>
+                <p><strong>Phone:</strong> 01984213300</p>
+                <p><strong>Email:</strong> 2020200010022@eeu.edu.bd</p>
+
+                <div class="social-links">
+                    <a href="https://github.com/Nabil2251" class="btn social-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/iftekhar-nabil/" class="btn social-btn">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#contact" class="btn btn-primary contact-btn">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-blocks-container">
+            <div class="info-block">
+                <h4>Education</h4>
+                <p><strong>Bachelor of Science in Computer Science and Engineering</strong></p>
+                <p>Southeast University, Dhaka</p>
+            </div>
+            <div class="info-block">
+                <h4>Skills</h4>
+                <p>Programming Languages (Flutter, Dart, HTML, CSS, JS)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+
+             <div class="skill-card">
+                <i class="fas fa-mobile-alt icon"></i>
+                <h3>Mobile Development</h3>
+                <p>Experience in developing cross-platform mobile applications.</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-desktop icon"></i>
+                <h3>Web Development</h3>
+                <p>Experience in developing responsive and dynamic web applications using modern technologies.</p>
+            </div>
+           
+
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 10 Tala Police Building, Kalibari, Bashabo</p>
+                <p><i class="fas fa-phone"></i> 01984213300</p>
+                <p><i class="fas fa-envelope"></i> 2020200010022@seu.edu.bd</p>
+                <div class="social-links-contact">
+                    <a href="https://github.com/Nabil2251" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/iftekhar-nabil/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+
+                    const targetId = e.target.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70, 
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
